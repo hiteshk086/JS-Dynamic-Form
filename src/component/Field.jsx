@@ -1,20 +1,22 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField, Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-const Field = ({ field }) => {
-  const [name, setName] = useState("");
-
-  const [number, setNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [dropDown, setDropdown] = useState("");
-
+const Field = ({
+  field,
+  name,
+  setName,
+  number,
+  setNumber,
+  email,
+  setEmail,
+  dropDown,
+  setDropdown,
+}) => {
   if (!field?.visible) return null;
-
-  const handleLogin = (data) => {};
 
   switch (field?.field_type) {
     case "text":
@@ -145,7 +147,19 @@ const Field = ({ field }) => {
               fontWeight: "bold",
               fontSize: "18px",
             }}
-            onClick={handleLogin}
+            onClick={() => {
+              const submitedData = {
+                name: name,
+                number: number,
+                email: email,
+                dropDown: dropDown,
+              };
+              console.log("submitedData :", submitedData);
+              setName("");
+              setDropdown("");
+              setEmail("");
+              setNumber("");
+            }}
           >
             Submit
           </Button>
