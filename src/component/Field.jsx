@@ -14,17 +14,7 @@ const Field = ({ field }) => {
 
   if (!field?.visible) return null;
 
-  const handleLogin = (data) => {
-    let finalData = {
-      name: name,
-      number: number,
-      dropDown: dropDown,
-      email: email,
-    };
-
-    console.log("Final Data :", finalData);
-    console.log("🚀 ~ Field ~ name:", name);
-  };
+  const handleLogin = (data) => {};
 
   switch (field?.field_type) {
     case "text":
